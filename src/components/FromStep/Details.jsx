@@ -67,8 +67,8 @@ const CustomSelectField = ({
       <div
         onClick={() => setIsOpen(true)}
         className={`
-          relative flex items-center gap-3 rounded-[18px] border
-          bg-white/80 px-3 py-3 transition-all
+          relative flex items-center gap-2.5 rounded-[16px] border
+          bg-white/80 px-2.5 py-2.5 transition-all
           sm:gap-4 sm:rounded-[20px] sm:px-4 sm:py-3.5
           md:py-4 cursor-pointer
           ${
@@ -87,7 +87,7 @@ const CustomSelectField = ({
           }}
           transition={{ duration: 0.45 }}
           className={`
-            flex h-9 w-9 shrink-0 items-center justify-center
+            flex h-8 w-8 shrink-0 items-center justify-center
             rounded-xl transition-colors
             sm:h-10 sm:w-10 sm:rounded-[14px]
             ${
@@ -98,11 +98,11 @@ const CustomSelectField = ({
           `}
           style={{ transformStyle: 'preserve-3d' }}
         >
-          <Icon size={17} />
+          <Icon size={15} className="sm:w-[17px] sm:h-[17px]" />
         </motion.div>
 
         <div className="min-w-0 flex-1">
-          <label className="block text-[9px] font-bold uppercase tracking-wider text-slate-400 sm:text-[10px]">
+          <label className="block text-[8px] font-bold uppercase tracking-wider text-slate-400 sm:text-[10px]">
             {field.label}
           </label>
 
@@ -114,7 +114,7 @@ const CustomSelectField = ({
             value={formData?.[field.name] || ''}
             className="
               mt-0.5 w-full min-w-0 bg-transparent
-              text-sm font-medium text-slate-800
+              text-xs font-medium text-slate-800
               outline-none placeholder:text-slate-300
               sm:text-[15px] cursor-pointer pointer-events-none
             "
@@ -175,7 +175,7 @@ const CustomSelectField = ({
             "
           >
             <div
-              className="max-h-52 overflow-y-auto"
+              className="max-h-48 overflow-y-auto"
               style={{ scrollbarWidth: 'none' }}
             >
               {field.options.map((opt) => (
@@ -192,14 +192,14 @@ const CustomSelectField = ({
                         value: opt,
                       },
                     });
-
                     setIsOpen(false);
                   }}
                   className="
-                    cursor-pointer rounded-xl px-4 py-3
-                    text-sm font-medium text-slate-700
+                    cursor-pointer rounded-xl px-3 py-2.5
+                    text-xs font-medium text-slate-700
                     transition-colors hover:bg-white
                     hover:text-slate-900 hover:shadow-sm
+                    sm:text-sm sm:px-4 sm:py-3
                   "
                 >
                   {opt}
@@ -227,10 +227,11 @@ const CustomSelectField = ({
             }}
             className="
               mt-1.5 flex items-center gap-1.5
-              px-2 text-[11px] font-medium text-red-500
+              px-2 text-[10px] font-medium text-red-500
+              sm:text-[11px]
             "
           >
-            <AlertCircle size={12} />
+            <AlertCircle size={10} className="sm:w-[12px] sm:h-[12px]" />
             {hasError}
           </motion.p>
         )}
@@ -379,7 +380,7 @@ export default function Details({
       icon: Building2,
       options: [
         'MP NAGAR',
-        'INDERPUR',
+        'INDERPURI',
       ],
     },
     {
@@ -388,10 +389,10 @@ export default function Details({
       placeholder: 'Select Course',
       icon: BookOpen,
       options: [
-        'CTR',
         'Fullstack Development / Software Development',
-        'Data Analytics',
         'Data Science',
+        'CTR',
+        'Data Analytics',
         'Machine Learning',
         'Cyber Security & Ethical Hacking',
         'Python',
@@ -441,16 +442,15 @@ export default function Details({
     <div
       onMouseMove={handleMouseMove}
       className="
-        relative min-h-[100dvh] w-full
+        relative h-[100dvh] w-full
         overflow-hidden flex items-center justify-center
         bg-[#e9edf2] font-sans
-        px-3 py-4 sm:px-5 sm:py-6
+        px-3 py-2 sm:px-5 sm:py-6
         md:px-8 md:py-8 lg:px-10 lg:py-10
         perspective-[1800px]
       "
     >
       {/* BACKGROUND GRID */}
-
       <div
         className="
           pointer-events-none absolute inset-0
@@ -463,7 +463,6 @@ export default function Details({
       />
 
       {/* 3D ORB LEFT */}
-
       <motion.div
         animate={{
           y: [-25, 25, -25],
@@ -488,7 +487,6 @@ export default function Details({
       />
 
       {/* 3D ORB RIGHT */}
-
       <motion.div
         animate={{
           y: [25, -25, 25],
@@ -513,7 +511,6 @@ export default function Details({
       />
 
       {/* WATER BUBBLES */}
-
       <AnimatePresence>
         {bubbles.map((bubble) => (
           <motion.div
@@ -553,7 +550,6 @@ export default function Details({
       </AnimatePresence>
 
       {/* MAIN CARD */}
-
       <motion.div
         ref={cardRef}
         onMouseMove={handleCardMouseMove}
@@ -587,7 +583,6 @@ export default function Details({
         "
       >
         {/* SHADOW */}
-
         <div
           className="
             pointer-events-none absolute inset-4
@@ -597,14 +592,14 @@ export default function Details({
         />
 
         {/* CARD */}
-
         <div
           className="
-            relative max-h-[calc(100dvh-32px)]
+            relative max-h-[calc(100dvh-20px)]
             overflow-y-auto overflow-x-hidden
             rounded-[28px] border border-white/90
             bg-white/80 backdrop-blur-3xl
             shadow-[0_30px_80px_rgba(15,23,42,0.16)]
+            sm:max-h-[calc(100dvh-32px)]
             sm:rounded-[34px]
             md:rounded-[38px]
           "
@@ -614,7 +609,6 @@ export default function Details({
           }}
         >
           {/* TOP LIGHT */}
-
           <motion.div
             animate={{
               x: ['-120%', '220%'],
@@ -638,10 +632,9 @@ export default function Details({
           />
 
           {/* CONTENT */}
-
           <div
             className="
-              relative p-5
+              relative p-4
               sm:p-7 md:p-9 lg:p-11
             "
             style={{
@@ -649,7 +642,6 @@ export default function Details({
             }}
           >
             {/* HEADER */}
-
             <motion.div
               style={{
                 translateZ: 40,
@@ -686,9 +678,10 @@ export default function Details({
                   },
                 }}
                 className="
-                  mx-auto mb-3 flex h-12 w-12
+                  mx-auto mb-2 flex h-10 w-10
                   items-center justify-center
-                  rounded-[16px]
+                  overflow-hidden
+                  rounded-[12px]
                   bg-slate-900 text-white
                   shadow-[0_12px_25px_rgba(15,23,42,0.25)]
                   sm:mb-4 sm:h-14 sm:w-14
@@ -698,15 +691,16 @@ export default function Details({
                   transformStyle: 'preserve-3d',
                 }}
               >
-                <BookOpen
-                  size={23}
-                  className="sm:h-7 sm:w-7"
+                <img 
+                  src="/303965.png" 
+                  alt="Logo" 
+                  className="h-full w-full object-cover" 
                 />
               </motion.div>
 
               <h1
                 className="
-                  text-[25px] font-black
+                  text-[22px] font-black
                   tracking-tight text-slate-900
                   sm:text-3xl md:text-4xl
                 "
@@ -716,7 +710,7 @@ export default function Details({
 
               <p
                 className="
-                  mt-1.5 text-xs text-slate-500
+                  mt-1 text-[10px] text-slate-500
                   sm:mt-2 sm:text-sm
                 "
               >
@@ -725,12 +719,11 @@ export default function Details({
             </motion.div>
 
             {/* STEPPER */}
-
-            <div className="relative my-8 sm:my-10 md:my-11">
+            <div className="relative my-5 sm:my-8 md:my-11">
               <div
                 className="
                   absolute left-[16.66%] right-[16.66%]
-                  top-[18px] h-[2px]
+                  top-[16px] h-[2px]
                   bg-slate-200 sm:top-5
                 "
               />
@@ -748,7 +741,7 @@ export default function Details({
                 }}
                 className="
                   absolute left-[16.66%]
-                  top-[18px] h-[2px]
+                  top-[16px] h-[2px]
                   bg-slate-900 sm:top-5
                 "
               />
@@ -788,10 +781,10 @@ export default function Details({
                           repeat: active ? Infinity : 0,
                         }}
                         className={`
-                          flex h-9 w-9
+                          flex h-8 w-8
                           items-center justify-center
                           rounded-full border-2
-                          text-xs font-bold
+                          text-[10px] font-bold
                           sm:h-10 sm:w-10 sm:text-sm
                           ${
                             active || completed
@@ -814,8 +807,9 @@ export default function Details({
                               }}
                             >
                               <Check
-                                size={17}
+                                size={15}
                                 strokeWidth={3}
+                                className="sm:w-[17px] sm:h-[17px]"
                               />
                             </motion.div>
                           ) : (
@@ -838,7 +832,7 @@ export default function Details({
 
                       <span
                         className={`
-                          mt-2 text-[10px]
+                          mt-1.5 text-[9px]
                           font-semibold
                           sm:mt-3 sm:text-xs
                           md:text-sm
@@ -860,9 +854,8 @@ export default function Details({
             </div>
 
             {/* FORM */}
-
             <form
-              className="space-y-4 sm:space-y-5"
+              className="space-y-3 sm:space-y-4"
               onSubmit={(e) => {
                 e.preventDefault();
                 validateForm();
@@ -870,7 +863,7 @@ export default function Details({
             >
               <div
                 className="
-                  grid grid-cols-1 gap-4
+                  grid grid-cols-1 gap-3
                   sm:gap-5 md:grid-cols-2
                 "
               >
@@ -886,7 +879,6 @@ export default function Details({
                 ))}
 
                 {/* OTHER COUNSELOR */}
-
                 <AnimatePresence>
                   {formData?.counselor === 'Other' && (
                     <motion.div
@@ -917,9 +909,9 @@ export default function Details({
                     >
                       <div
                         className={`
-                          relative flex items-center gap-3
-                          rounded-[18px] border
-                          bg-white/90 px-3 py-3
+                          relative flex items-center gap-2.5
+                          rounded-[16px] border
+                          bg-white/90 px-2.5 py-2.5
                           sm:gap-4 sm:rounded-[20px]
                           sm:px-4 sm:py-3.5 md:py-4
                           ${
@@ -931,7 +923,7 @@ export default function Details({
                       >
                         <div
                           className="
-                            flex h-9 w-9 shrink-0
+                            flex h-8 w-8 shrink-0
                             items-center justify-center
                             rounded-xl bg-slate-100
                             text-slate-600
@@ -939,13 +931,13 @@ export default function Details({
                             sm:rounded-[14px]
                           "
                         >
-                          <UserRound size={17} />
+                          <UserRound size={15} className="sm:w-[17px] sm:h-[17px]" />
                         </div>
 
                         <div className="min-w-0 flex-1">
                           <label
                             className="
-                              block text-[9px]
+                              block text-[8px]
                               font-bold uppercase
                               tracking-wider text-slate-400
                               sm:text-[10px]
@@ -972,7 +964,7 @@ export default function Details({
                             }
                             className="
                               mt-0.5 w-full min-w-0
-                              bg-transparent text-sm
+                              bg-transparent text-xs
                               font-medium text-slate-800
                               outline-none
                               placeholder:text-slate-300
@@ -986,11 +978,12 @@ export default function Details({
                         <p
                           className="
                             mt-1.5 flex items-center gap-1.5
-                            px-2 text-[11px]
+                            px-2 text-[10px]
                             font-medium text-red-500
+                            sm:text-[11px]
                           "
                         >
-                          <AlertCircle size={12} />
+                          <AlertCircle size={10} className="sm:w-[12px] sm:h-[12px]" />
                           {errors.otherCounselor}
                         </p>
                       )}
@@ -999,7 +992,6 @@ export default function Details({
                 </AnimatePresence>
 
                 {/* REFERENCES */}
-
                 <motion.div
                   initial={{
                     opacity: 0,
@@ -1024,9 +1016,9 @@ export default function Details({
                 >
                   <div
                     className="
-                      relative flex items-center gap-3
-                      rounded-[18px] border border-slate-200
-                      bg-white/80 px-3 py-3
+                      relative flex items-center gap-2.5
+                      rounded-[16px] border border-slate-200
+                      bg-white/80 px-2.5 py-2.5
                       transition-all
                       sm:gap-4 sm:rounded-[20px]
                       sm:px-4 sm:py-3.5 md:py-4
@@ -1043,7 +1035,7 @@ export default function Details({
                         duration: 0.45,
                       }}
                       className="
-                        flex h-9 w-9 shrink-0
+                        flex h-8 w-8 shrink-0
                         items-center justify-center
                         rounded-xl bg-slate-100
                         text-slate-600
@@ -1055,13 +1047,13 @@ export default function Details({
                           'preserve-3d',
                       }}
                     >
-                      <Users size={17} />
+                      <Users size={15} className="sm:w-[17px] sm:h-[17px]" />
                     </motion.div>
 
                     <div className="min-w-0 flex-1">
                       <label
                         className="
-                          block text-[9px]
+                          block text-[8px]
                           font-bold uppercase
                           tracking-wider text-slate-400
                           sm:text-[10px]
@@ -1086,7 +1078,7 @@ export default function Details({
                         }
                         className="
                           mt-0.5 w-full min-w-0
-                          bg-transparent text-sm
+                          bg-transparent text-xs
                           font-medium text-slate-800
                           outline-none
                           placeholder:text-slate-300
@@ -1109,7 +1101,6 @@ export default function Details({
                 </motion.div>
 
                 {/* CALLER NAME */}
-
                 <motion.div
                   initial={{
                     opacity: 0,
@@ -1134,9 +1125,9 @@ export default function Details({
                 >
                   <div
                     className="
-                      relative flex items-center gap-3
-                      rounded-[18px] border border-slate-200
-                      bg-white/80 px-3 py-3
+                      relative flex items-center gap-2.5
+                      rounded-[16px] border border-slate-200
+                      bg-white/80 px-2.5 py-2.5
                       transition-all
                       sm:gap-4 sm:rounded-[20px]
                       sm:px-4 sm:py-3.5 md:py-4
@@ -1153,7 +1144,7 @@ export default function Details({
                         duration: 0.45,
                       }}
                       className="
-                        flex h-9 w-9 shrink-0
+                        flex h-8 w-8 shrink-0
                         items-center justify-center
                         rounded-xl bg-slate-100
                         text-slate-600
@@ -1165,13 +1156,13 @@ export default function Details({
                           'preserve-3d',
                       }}
                     >
-                      <UserRound size={17} />
+                      <UserRound size={15} className="sm:w-[17px] sm:h-[17px]" />
                     </motion.div>
 
                     <div className="min-w-0 flex-1">
                       <label
                         className="
-                          block text-[9px]
+                          block text-[8px]
                           font-bold uppercase
                           tracking-wider text-slate-400
                           sm:text-[10px]
@@ -1196,7 +1187,7 @@ export default function Details({
                         }
                         className="
                           mt-0.5 w-full min-w-0
-                          bg-transparent text-sm
+                          bg-transparent text-xs
                           font-medium text-slate-800
                           outline-none
                           placeholder:text-slate-300
@@ -1220,16 +1211,14 @@ export default function Details({
               </div>
 
               {/* BUTTONS */}
-
               <div
                 className="
-                  flex flex-col-reverse gap-3 pt-4
+                  flex flex-col-reverse gap-2 pt-2
                   sm:flex-row sm:items-center
-                  sm:justify-between sm:pt-6
+                  sm:justify-between sm:pt-4
                 "
               >
                 {/* BACK */}
-
                 <motion.button
                   type="button"
                   onClick={onPrev}
@@ -1245,20 +1234,19 @@ export default function Details({
                   }}
                   className="
                     flex items-center justify-center
-                    gap-2 rounded-[18px]
-                    bg-slate-100 py-3.5 px-6
-                    text-sm font-bold text-slate-600
+                    gap-2 rounded-[16px]
+                    bg-slate-100 py-3 px-6
+                    text-xs font-bold text-slate-600
                     hover:bg-slate-200 transition-all
                     sm:rounded-[20px]
-                    sm:py-4 sm:px-8 cursor-pointer
+                    sm:py-4 sm:px-8 sm:text-sm cursor-pointer
                   "
                 >
-                  <ArrowLeft size={18} />
+                  <ArrowLeft size={16} className="sm:w-[18px] sm:h-[18px]" />
                   <span>Back</span>
                 </motion.button>
 
                 {/* SUBMIT */}
-
                 <motion.button
                   type="submit"
                   whileHover={{
@@ -1273,13 +1261,13 @@ export default function Details({
                   }}
                   className="
                     group relative flex
-                    items-center justify-center gap-3
-                    overflow-hidden rounded-[18px]
-                    bg-slate-900 py-3.5 px-8
-                    text-sm font-bold text-white
+                    items-center justify-center gap-2
+                    overflow-hidden rounded-[16px]
+                    bg-slate-900 py-3 px-8
+                    text-xs font-bold text-white
                     shadow-[0_10px_25px_rgba(15,23,42,0.18)]
-                    sm:rounded-[20px]
-                    sm:py-4 sm:px-10 cursor-pointer
+                    sm:gap-3 sm:rounded-[20px]
+                    sm:py-4 sm:px-10 sm:text-sm cursor-pointer
                   "
                 >
                   <motion.div
@@ -1319,14 +1307,13 @@ export default function Details({
                     }}
                     className="relative z-10"
                   >
-                    <Send size={18} />
+                    <Send size={16} className="sm:w-[18px] sm:h-[18px]" />
                   </motion.span>
                 </motion.button>
               </div>
             </form>
 
             {/* FOOTER */}
-
             <motion.div
               initial={{
                 opacity: 0,
@@ -1338,13 +1325,13 @@ export default function Details({
                 delay: 1.1,
               }}
               className="
-                mt-4 flex items-center
+                mt-3 flex items-center
                 justify-center gap-1.5
-                text-[10px] text-slate-400
+                text-[9px] text-slate-400
                 sm:mt-5 sm:text-xs
               "
             >
-              <Sparkles size={11} />
+              <Sparkles size={10} className="sm:w-[11px] sm:h-[11px]" />
               Secure Admission Enquiry
             </motion.div>
           </div>

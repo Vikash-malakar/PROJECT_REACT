@@ -18,12 +18,10 @@ import {
 } from 'lucide-react';
 
 // --- CUSTOM SELECT COMPONENT ---
-// Ye component default <select> ko replace karta hai aur Branch ke liye manual typing allow karta hai
 const CustomSelectField = ({ field, index, formData, handleChange, hasError }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Close dropdown if clicked outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -34,7 +32,6 @@ const CustomSelectField = ({ field, index, formData, handleChange, hasError }) =
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Sirf Branch field manual typing support karega
   const isCustomizable = field.name === 'branch';
 
   return (
@@ -49,14 +46,13 @@ const CustomSelectField = ({ field, index, formData, handleChange, hasError }) =
         damping: 15,
       }}
       className="relative"
-      // Dropdown jab open ho tab uski z-index sabse upar rahe
       style={{ zIndex: isOpen ? 50 : 10 - index }}
       ref={dropdownRef}
     >
       <div
         onClick={() => setIsOpen(true)}
         className={`
-          relative flex items-center gap-3 rounded-[18px] border bg-white/80 px-3 py-3 transition-all sm:gap-4 sm:rounded-[20px] sm:px-4 sm:py-3.5 md:py-4
+          relative flex items-center gap-2.5 rounded-[16px] border bg-white/80 px-2.5 py-2.5 transition-all sm:gap-4 sm:rounded-[20px] sm:px-4 sm:py-3.5 md:py-4
           ${
             hasError
               ? 'border-red-300'
@@ -69,16 +65,16 @@ const CustomSelectField = ({ field, index, formData, handleChange, hasError }) =
         <motion.div
           whileHover={{ rotateY: 180, scale: 1.08 }}
           transition={{ duration: 0.45 }}
-          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition-colors sm:h-10 sm:w-10 sm:rounded-[14px] ${
+          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-xl transition-colors sm:h-10 sm:w-10 sm:rounded-[14px] ${
             isOpen ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600'
           }`}
           style={{ transformStyle: 'preserve-3d' }}
         >
-          <GraduationCap size={17} />
+          <GraduationCap size={15} className="sm:w-[17px] sm:h-[17px]" />
         </motion.div>
 
         <div className="min-w-0 flex-1">
-          <label className="block text-[9px] font-bold uppercase tracking-wider text-slate-400 sm:text-[10px]">
+          <label className="block text-[8px] font-bold uppercase tracking-wider text-slate-400 sm:text-[10px]">
             {field.label}
           </label>
           <input
@@ -92,7 +88,7 @@ const CustomSelectField = ({ field, index, formData, handleChange, hasError }) =
                 handleChange(e);
               }
             }}
-            className="mt-0.5 w-full min-w-0 bg-transparent text-sm font-medium text-slate-800 outline-none placeholder:text-slate-300 sm:text-[15px]"
+            className="mt-0.5 w-full min-w-0 bg-transparent text-xs font-medium text-slate-800 outline-none placeholder:text-slate-300 sm:text-[15px]"
             style={{ cursor: isCustomizable ? 'text' : 'pointer' }}
           />
         </div>
@@ -108,7 +104,6 @@ const CustomSelectField = ({ field, index, formData, handleChange, hasError }) =
           }`}
         />
 
-        {/* Animated Focus Line */}
         <div
           className={`pointer-events-none absolute bottom-0 left-5 right-5 h-[2px] origin-center bg-slate-900 transition-transform duration-300 ${
             isOpen ? 'scale-x-100' : 'scale-x-0'
@@ -116,7 +111,6 @@ const CustomSelectField = ({ field, index, formData, handleChange, hasError }) =
         />
       </div>
 
-      {/* Dropdown Menu Options */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -126,7 +120,7 @@ const CustomSelectField = ({ field, index, formData, handleChange, hasError }) =
             transition={{ duration: 0.2 }}
             className="absolute left-0 right-0 top-[105%] mt-2 rounded-[20px] border border-white/80 bg-white/70 p-1.5 shadow-[0_20px_40px_rgba(15,23,42,0.12)] backdrop-blur-3xl overflow-hidden"
           >
-            <div className="max-h-52 overflow-y-auto" style={{ scrollbarWidth: 'none' }}>
+            <div className="max-h-48 overflow-y-auto" style={{ scrollbarWidth: 'none' }}>
               {field.options.map((opt) => (
                 <div
                   key={opt}
@@ -134,7 +128,7 @@ const CustomSelectField = ({ field, index, formData, handleChange, hasError }) =
                     handleChange({ target: { name: field.name, value: opt } });
                     setIsOpen(false);
                   }}
-                  className="cursor-pointer rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-white hover:text-slate-900 hover:shadow-sm"
+                  className="cursor-pointer rounded-xl px-3 py-2.5 text-xs font-medium text-slate-700 transition-colors hover:bg-white hover:text-slate-900 hover:shadow-sm sm:px-4 sm:py-3 sm:text-sm"
                 >
                   {opt}
                 </div>
@@ -150,9 +144,9 @@ const CustomSelectField = ({ field, index, formData, handleChange, hasError }) =
             initial={{ opacity: 0, y: -5 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -5 }}
-            className="mt-1.5 flex items-center gap-1.5 px-2 text-[11px] font-medium text-red-500"
+            className="mt-1.5 flex items-center gap-1.5 px-2 text-[10px] sm:text-[11px] font-medium text-red-500"
           >
-            <AlertCircle size={12} />
+            <AlertCircle size={10} className="sm:w-[12px] sm:h-[12px]" />
             Required
           </motion.p>
         )}
@@ -174,14 +168,12 @@ export default function Education({
 
   const cardRef = useRef(null);
 
-  // Water Bubble Effect Logic
   const handleMouseMove = (e) => {
     const newBubble = {
       id: Date.now(),
       x: e.clientX,
       y: e.clientY,
     };
-
     setBubbles((prev) => [...prev.slice(-15), newBubble]);
   };
 
@@ -189,7 +181,6 @@ export default function Education({
     const timer = setInterval(() => {
       setBubbles((prev) => prev.slice(1));
     }, 100);
-
     return () => clearInterval(timer);
   }, []);
 
@@ -220,7 +211,6 @@ export default function Education({
     }
   };
 
-  // 3D Motion Logic
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -335,7 +325,7 @@ export default function Education({
       onMouseMove={handleMouseMove}
       className="
         relative
-        min-h-[100dvh]
+        h-[100dvh]
         w-full
         overflow-hidden
         flex
@@ -344,7 +334,7 @@ export default function Education({
         bg-[#e9edf2]
         font-sans
         px-3
-        py-4
+        py-2
         sm:px-5
         sm:py-6
         md:px-8
@@ -527,7 +517,7 @@ export default function Education({
         <div
           className="
             relative
-            max-h-[calc(100dvh-32px)]
+            max-h-[calc(100dvh-20px)]
             overflow-y-auto
             overflow-x-hidden
             rounded-[28px]
@@ -536,6 +526,7 @@ export default function Education({
             bg-white/80
             backdrop-blur-3xl
             shadow-[0_30px_80px_rgba(15,23,42,0.16)]
+            sm:max-h-[calc(100dvh-32px)]
             sm:rounded-[34px]
             md:rounded-[38px]
           "
@@ -575,7 +566,7 @@ export default function Education({
           <div
             className="
               relative
-              p-5
+              p-4
               sm:p-7
               md:p-9
               lg:p-11
@@ -622,13 +613,14 @@ export default function Education({
                 }}
                 className="
                   mx-auto
-                  mb-3
+                  mb-2
                   flex
-                  h-12
-                  w-12
+                  h-10
+                  w-10
                   items-center
                   justify-center
-                  rounded-[16px]
+                  overflow-hidden
+                  rounded-[12px]
                   bg-slate-900
                   text-white
                   shadow-[0_12px_25px_rgba(15,23,42,0.25)]
@@ -641,15 +633,16 @@ export default function Education({
                   transformStyle: 'preserve-3d',
                 }}
               >
-                <GraduationCap
-                  size={23}
-                  className="sm:h-7 sm:w-7"
+                <img 
+                  src="/303965.png" 
+                  alt="Logo" 
+                  className="h-full w-full object-cover" 
                 />
               </motion.div>
 
               <h1
                 className="
-                  text-[25px]
+                  text-[22px]
                   font-black
                   tracking-tight
                   text-slate-900
@@ -662,8 +655,8 @@ export default function Education({
 
               <p
                 className="
-                  mt-1.5
-                  text-xs
+                  mt-1
+                  text-[10px]
                   text-slate-500
                   sm:mt-2
                   sm:text-sm
@@ -674,13 +667,13 @@ export default function Education({
             </motion.div>
 
             {/* STEPPER */}
-            <div className="relative my-8 sm:my-10 md:my-11">
+            <div className="relative my-5 sm:my-8 md:my-11">
               <div
                 className="
                   absolute
                   left-[16.66%]
                   right-[16.66%]
-                  top-[18px]
+                  top-[16px]
                   h-[2px]
                   bg-slate-200
                   sm:top-5
@@ -697,7 +690,7 @@ export default function Education({
                 className="
                   absolute
                   left-[16.66%]
-                  top-[18px]
+                  top-[16px]
                   h-[2px]
                   bg-slate-900
                   sm:top-5
@@ -737,13 +730,13 @@ export default function Education({
                         }}
                         className={`
                           flex
-                          h-9
-                          w-9
+                          h-8
+                          w-8
                           items-center
                           justify-center
                           rounded-full
                           border-2
-                          text-xs
+                          text-[10px]
                           font-bold
                           sm:h-10
                           sm:w-10
@@ -762,7 +755,7 @@ export default function Education({
                               initial={{ scale: 0, rotate: -90 }}
                               animate={{ scale: 1, rotate: 0 }}
                             >
-                              <Check size={17} strokeWidth={3} />
+                              <Check size={15} strokeWidth={3} className="sm:w-[17px] sm:h-[17px]"/>
                             </motion.div>
                           ) : (
                             <motion.span
@@ -778,8 +771,8 @@ export default function Education({
 
                       <span
                         className={`
-                          mt-2
-                          text-[10px]
+                          mt-1.5
+                          text-[9px]
                           font-semibold
                           sm:mt-3
                           sm:text-xs
@@ -803,14 +796,13 @@ export default function Education({
 
             {/* FORM */}
             <form
-              className="space-y-4 sm:space-y-5"
+              className="space-y-3 sm:space-y-4"
               onSubmit={(e) => {
                 e.preventDefault();
                 validateForm();
               }}
             >
-              <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
-                {/* 1 se 5 tak ke sabhi Custom Select Fields render honge */}
+              <div className="grid grid-cols-1 gap-3 sm:gap-5 md:grid-cols-2">
                 {fields.map((field, index) => {
                   return (
                     <CustomSelectField 
@@ -850,12 +842,12 @@ export default function Education({
                       relative
                       flex
                       items-center
-                      gap-3
-                      rounded-[18px]
+                      gap-2.5
+                      rounded-[16px]
                       border
                       bg-white/80
-                      px-3
-                      py-3
+                      px-2.5
+                      py-2.5
                       transition-all
                       sm:gap-4
                       sm:rounded-[20px]
@@ -879,8 +871,8 @@ export default function Education({
                       }}
                       className="
                         flex
-                        h-9
-                        w-9
+                        h-8
+                        w-8
                         shrink-0
                         items-center
                         justify-center
@@ -895,14 +887,14 @@ export default function Education({
                         transformStyle: 'preserve-3d',
                       }}
                     >
-                      <Building2 size={17} />
+                      <Building2 size={15} className="sm:w-[17px] sm:h-[17px]"/>
                     </motion.div>
 
                     <div className="min-w-0 flex-1">
                       <label
                         className="
                           block
-                          text-[9px]
+                          text-[8px]
                           font-bold
                           uppercase
                           tracking-wider
@@ -926,7 +918,7 @@ export default function Education({
                           w-full
                           min-w-0
                           bg-transparent
-                          text-sm
+                          text-xs
                           font-medium
                           text-slate-800
                           outline-none
@@ -966,12 +958,13 @@ export default function Education({
                           items-center
                           gap-1.5
                           px-2
-                          text-[11px]
+                          text-[10px]
                           font-medium
                           text-red-500
+                          sm:text-[11px]
                         "
                       >
-                        <AlertCircle size={12} />
+                        <AlertCircle size={10} className="sm:w-[12px] sm:h-[12px]"/>
                         Required
                       </motion.p>
                     )}
@@ -983,12 +976,12 @@ export default function Education({
               <div
                 className="
                   flex flex-col-reverse
-                  gap-3
-                  pt-4
+                  gap-2
+                  pt-2
                   sm:flex-row
                   sm:items-center
                   sm:justify-between
-                  sm:pt-6
+                  sm:pt-4
                 "
               >
                 {/* PREV BUTTON */}
@@ -1009,11 +1002,11 @@ export default function Education({
                     items-center
                     justify-center
                     gap-2
-                    rounded-[18px]
+                    rounded-[16px]
                     bg-slate-100
-                    py-3.5
+                    py-3
                     px-6
-                    text-sm
+                    text-xs
                     font-bold
                     text-slate-600
                     hover:bg-slate-200
@@ -1021,10 +1014,11 @@ export default function Education({
                     sm:rounded-[20px]
                     sm:py-4
                     sm:px-8
+                    sm:text-sm
                     cursor-pointer
                   "
                 >
-                  <ArrowLeft size={18} />
+                  <ArrowLeft size={16} className="sm:w-[18px] sm:h-[18px]"/>
                   <span>Back</span>
                 </motion.button>
 
@@ -1046,19 +1040,21 @@ export default function Education({
                     flex
                     items-center
                     justify-center
-                    gap-3
+                    gap-2
                     overflow-hidden
-                    rounded-[18px]
+                    rounded-[16px]
                     bg-slate-900
-                    py-3.5
+                    py-3
                     px-8
-                    text-sm
+                    text-xs
                     font-bold
                     text-white
                     shadow-[0_10px_25px_rgba(15,23,42,0.18)]
+                    sm:gap-3
                     sm:rounded-[20px]
                     sm:py-4
                     sm:px-10
+                    sm:text-sm
                     cursor-pointer
                   "
                 >
@@ -1093,7 +1089,7 @@ export default function Education({
                     }}
                     className="relative z-10"
                   >
-                    <ArrowRight size={18} />
+                    <ArrowRight size={16} className="sm:w-[18px] sm:h-[18px]"/>
                   </motion.span>
                 </motion.button>
               </div>
@@ -1105,18 +1101,18 @@ export default function Education({
               animate={{ opacity: 1 }}
               transition={{ delay: 1.1 }}
               className="
-                mt-4
+                mt-3
                 flex
                 items-center
                 justify-center
                 gap-1.5
-                text-[10px]
+                text-[9px]
                 text-slate-400
                 sm:mt-5
                 sm:text-xs
               "
             >
-              <Sparkles size={11} />
+              <Sparkles size={10} className="sm:w-[11px] sm:h-[11px]" />
               Secure Admission Enquiry
             </motion.div>
           </div>

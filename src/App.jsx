@@ -69,7 +69,7 @@ export default function App() {
       console.log('Sending Data:', formData);
 
       const response = await fetch(
-        'http://127.0.0.1:8000/registations/',
+        'https://django-project-f-1.onrender.com/',
         {
           method: 'POST',
 

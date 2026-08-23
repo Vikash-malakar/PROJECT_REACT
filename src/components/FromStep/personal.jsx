@@ -15,7 +15,6 @@ import {
   CheckCircle2,
   AlertCircle,
   Sparkles,
-  GraduationCap,
 } from 'lucide-react';
 
 export default function Personal({ formData, updateFormData, onNext }) {
@@ -127,7 +126,7 @@ export default function Personal({ formData, updateFormData, onNext }) {
       onMouseMove={handleMouseMove}
       className="
         relative
-        min-h-[100dvh]
+        h-[100dvh]
         w-full
         overflow-hidden
         flex
@@ -136,7 +135,7 @@ export default function Personal({ formData, updateFormData, onNext }) {
         bg-[#e9edf2]
         font-sans
         px-3
-        py-4
+        py-2
         sm:px-5
         sm:py-6
         md:px-8
@@ -147,10 +146,7 @@ export default function Personal({ formData, updateFormData, onNext }) {
       "
     >
 
-      {/* ================================= */}
       {/* BACKGROUND GRID */}
-      {/* ================================= */}
-
       <div
         className="
           pointer-events-none
@@ -164,10 +160,7 @@ export default function Personal({ formData, updateFormData, onNext }) {
         "
       />
 
-      {/* ================================= */}
       {/* BACKGROUND 3D ORBS */}
-      {/* ================================= */}
-
       <motion.div
         animate={{
           y: [-25, 25, -25],
@@ -232,10 +225,7 @@ export default function Personal({ formData, updateFormData, onNext }) {
         "
       />
 
-      {/* ================================= */}
       {/* WATER BUBBLES */}
-      {/* ================================= */}
-
       <AnimatePresence>
         {bubbles.map((bubble) => (
           <motion.div
@@ -278,10 +268,7 @@ export default function Personal({ formData, updateFormData, onNext }) {
         ))}
       </AnimatePresence>
 
-      {/* ================================= */}
       {/* CARD */}
-      {/* ================================= */}
-
       <motion.div
         ref={cardRef}
         onMouseMove={handleCardMouseMove}
@@ -316,7 +303,6 @@ export default function Personal({ formData, updateFormData, onNext }) {
           lg:max-w-[760px]
         "
       >
-
         {/* CARD SHADOW */}
         <div
           className="
@@ -333,7 +319,7 @@ export default function Personal({ formData, updateFormData, onNext }) {
         <div
           className="
             relative
-            max-h-[calc(100dvh-32px)]
+            max-h-[calc(100dvh-20px)]
             overflow-y-auto
             overflow-x-hidden
             rounded-[28px]
@@ -342,6 +328,7 @@ export default function Personal({ formData, updateFormData, onNext }) {
             bg-white/80
             backdrop-blur-3xl
             shadow-[0_30px_80px_rgba(15,23,42,0.16)]
+            sm:max-h-[calc(100dvh-32px)]
             sm:rounded-[34px]
             md:rounded-[38px]
           "
@@ -350,7 +337,6 @@ export default function Personal({ formData, updateFormData, onNext }) {
             scrollbarWidth: 'none',
           }}
         >
-
           {/* TOP LIGHT */}
           <motion.div
             animate={{
@@ -382,7 +368,7 @@ export default function Personal({ formData, updateFormData, onNext }) {
           <div
             className="
               relative
-              p-5
+              p-4
               sm:p-7
               md:p-9
               lg:p-11
@@ -391,7 +377,6 @@ export default function Personal({ formData, updateFormData, onNext }) {
               transformStyle: 'preserve-3d',
             }}
           >
-
             {/* HEADER */}
             <motion.div
               style={{
@@ -411,7 +396,6 @@ export default function Personal({ formData, updateFormData, onNext }) {
               }}
               className="text-center"
             >
-
               <motion.div
                 animate={{
                   y: [-3, 3, -3],
@@ -431,13 +415,14 @@ export default function Personal({ formData, updateFormData, onNext }) {
                 }}
                 className="
                   mx-auto
-                  mb-3
+                  mb-2
                   flex
-                  h-12
-                  w-12
+                  h-10
+                  w-10
                   items-center
                   justify-center
-                  rounded-[16px]
+                  overflow-hidden
+                  rounded-[12px]
                   bg-slate-900
                   text-white
                   shadow-[0_12px_25px_rgba(15,23,42,0.25)]
@@ -450,15 +435,16 @@ export default function Personal({ formData, updateFormData, onNext }) {
                   transformStyle: 'preserve-3d',
                 }}
               >
-                <GraduationCap
-                  size={23}
-                  className="sm:h-7 sm:w-7"
+                <img 
+                  src="/303965.png" 
+                  alt="Logo" 
+                  className="h-full w-full object-cover" 
                 />
               </motion.div>
 
               <h1
                 className="
-                  text-[25px]
+                  text-[22px]
                   font-black
                   tracking-tight
                   text-slate-900
@@ -471,8 +457,8 @@ export default function Personal({ formData, updateFormData, onNext }) {
 
               <p
                 className="
-                  mt-1.5
-                  text-xs
+                  mt-1
+                  text-[10px]
                   text-slate-500
                   sm:mt-2
                   sm:text-sm
@@ -480,19 +466,17 @@ export default function Personal({ formData, updateFormData, onNext }) {
               >
                 Complete your personal information
               </p>
-
             </motion.div>
 
             {/* STEPPER */}
-            <div className="relative my-8 sm:my-10 md:my-11">
-
+            <div className="relative my-5 sm:my-8 md:my-11">
               {/* LINE */}
               <div
                 className="
                   absolute
                   left-[16.66%]
                   right-[16.66%]
-                  top-[18px]
+                  top-[16px]
                   h-[2px]
                   bg-slate-200
                   sm:top-5
@@ -515,7 +499,7 @@ export default function Personal({ formData, updateFormData, onNext }) {
                 className="
                   absolute
                   left-[16.66%]
-                  top-[18px]
+                  top-[16px]
                   h-[2px]
                   bg-slate-900
                   sm:top-5
@@ -523,9 +507,7 @@ export default function Personal({ formData, updateFormData, onNext }) {
               />
 
               <div className="relative flex justify-between">
-
                 {[1, 2, 3].map((s) => {
-
                   const completed = activeStep > s;
                   const active = activeStep === s;
 
@@ -538,7 +520,6 @@ export default function Personal({ formData, updateFormData, onNext }) {
                       }}
                       className="flex w-1/3 flex-col items-center"
                     >
-
                       <motion.div
                         animate={
                           active
@@ -558,13 +539,13 @@ export default function Personal({ formData, updateFormData, onNext }) {
                         }}
                         className={`
                           flex
-                          h-9
-                          w-9
+                          h-8
+                          w-8
                           items-center
                           justify-center
                           rounded-full
                           border-2
-                          text-xs
+                          text-[10px]
                           font-bold
                           sm:h-10
                           sm:w-10
@@ -576,9 +557,7 @@ export default function Personal({ formData, updateFormData, onNext }) {
                           }
                         `}
                       >
-
                         <AnimatePresence mode="wait">
-
                           {completed ? (
                             <motion.div
                               key="check"
@@ -591,7 +570,7 @@ export default function Personal({ formData, updateFormData, onNext }) {
                                 rotate: 0,
                               }}
                             >
-                              <CheckCircle2 size={17} />
+                              <CheckCircle2 size={15} className="sm:w-[17px] sm:h-[17px]" />
                             </motion.div>
                           ) : (
                             <motion.span
@@ -608,15 +587,13 @@ export default function Personal({ formData, updateFormData, onNext }) {
                               {s}
                             </motion.span>
                           )}
-
                         </AnimatePresence>
-
                       </motion.div>
 
                       <span
                         className={`
-                          mt-2
-                          text-[10px]
+                          mt-1.5
+                          text-[9px]
                           font-semibold
                           sm:mt-3
                           sm:text-xs
@@ -632,25 +609,21 @@ export default function Personal({ formData, updateFormData, onNext }) {
                         {s === 2 && 'Academic Details'}
                         {s === 3 && 'Submit'}
                       </span>
-
                     </motion.div>
                   );
                 })}
-
               </div>
             </div>
 
             {/* FORM */}
             <form
-              className="space-y-4 sm:space-y-5"
+              className="space-y-3 sm:space-y-4"
               onSubmit={(e) => {
                 e.preventDefault();
                 validateForm();
               }}
             >
-
               {fields.map((field, index) => {
-
                 const Icon = field.icon;
                 const hasError = errors[field.id];
 
@@ -676,18 +649,17 @@ export default function Personal({ formData, updateFormData, onNext }) {
                     }}
                     className="group"
                   >
-
                     <div
                       className={`
                         relative
                         flex
                         items-center
-                        gap-3
-                        rounded-[18px]
+                        gap-2.5
+                        rounded-[16px]
                         border
                         bg-white/80
-                        px-3
-                        py-3
+                        px-2.5
+                        py-2.5
                         transition-all
                         sm:gap-4
                         sm:rounded-[20px]
@@ -701,7 +673,6 @@ export default function Personal({ formData, updateFormData, onNext }) {
                         }
                       `}
                     >
-
                       {/* ICON */}
                       <motion.div
                         whileHover={{
@@ -713,8 +684,8 @@ export default function Personal({ formData, updateFormData, onNext }) {
                         }}
                         className="
                           flex
-                          h-9
-                          w-9
+                          h-8
+                          w-8
                           shrink-0
                           items-center
                           justify-center
@@ -729,16 +700,15 @@ export default function Personal({ formData, updateFormData, onNext }) {
                           transformStyle: 'preserve-3d',
                         }}
                       >
-                        <Icon size={17} />
+                        <Icon size={15} className="sm:w-[17px] sm:h-[17px]" />
                       </motion.div>
 
                       {/* INPUT */}
                       <div className="min-w-0 flex-1">
-
                         <label
                           className="
                             block
-                            text-[9px]
+                            text-[8px]
                             font-bold
                             uppercase
                             tracking-wider
@@ -748,7 +718,6 @@ export default function Personal({ formData, updateFormData, onNext }) {
                         >
                           {field.label}
                         </label>
-
                         <input
                           type="text"
                           placeholder={`Enter ${field.label.toLowerCase()}`}
@@ -764,7 +733,7 @@ export default function Personal({ formData, updateFormData, onNext }) {
                             w-full
                             min-w-0
                             bg-transparent
-                            text-sm
+                            text-xs
                             font-medium
                             text-slate-800
                             outline-none
@@ -772,7 +741,6 @@ export default function Personal({ formData, updateFormData, onNext }) {
                             sm:text-[15px]
                           "
                         />
-
                       </div>
 
                       {/* FOCUS LINE */}
@@ -792,7 +760,6 @@ export default function Personal({ formData, updateFormData, onNext }) {
                           group-focus-within:scale-x-100
                         "
                       />
-
                     </div>
 
                     {/* ERROR */}
@@ -817,17 +784,17 @@ export default function Personal({ formData, updateFormData, onNext }) {
                             items-center
                             gap-1.5
                             px-2
-                            text-[11px]
+                            text-[10px]
                             font-medium
                             text-red-500
+                            sm:text-[11px]
                           "
                         >
-                          <AlertCircle size={12} />
+                          <AlertCircle size={10} className="sm:w-[12px] sm:h-[12px]" />
                           Required
                         </motion.p>
                       )}
                     </AnimatePresence>
-
                   </motion.div>
                 );
               })}
@@ -850,8 +817,7 @@ export default function Personal({ formData, updateFormData, onNext }) {
                 whileHover={{
                   scale: 1.015,
                   y: -3,
-                  boxShadow:
-                    '0 18px 35px rgba(15,23,42,0.25)',
+                  boxShadow: '0 18px 35px rgba(15,23,42,0.25)',
                 }}
                 whileTap={{
                   scale: 0.96,
@@ -860,27 +826,28 @@ export default function Personal({ formData, updateFormData, onNext }) {
                 className="
                   group
                   relative
-                  mt-2
+                  mt-1
                   flex
                   w-full
                   items-center
                   justify-center
-                  gap-3
+                  gap-2
                   overflow-hidden
-                  rounded-[18px]
+                  rounded-[16px]
                   bg-slate-900
-                  py-3.5
-                  text-sm
+                  py-3
+                  text-xs
                   font-bold
                   text-white
                   shadow-[0_10px_25px_rgba(15,23,42,0.18)]
                   sm:mt-3
+                  sm:gap-3
                   sm:rounded-[20px]
                   sm:py-4
+                  sm:text-sm
                   cursor-pointer
                 "
               >
-
                 {/* SHINE */}
                 <motion.div
                   initial={{
@@ -905,9 +872,7 @@ export default function Personal({ formData, updateFormData, onNext }) {
                   "
                 />
 
-                <span className="relative z-10">
-                  Continue
-                </span>
+                <span className="relative z-10">Continue</span>
 
                 <motion.span
                   animate={{
@@ -920,11 +885,9 @@ export default function Personal({ formData, updateFormData, onNext }) {
                   }}
                   className="relative z-10"
                 >
-                  <ArrowRight size={18} />
+                  <ArrowRight size={16} className="sm:w-[18px] sm:h-[18px]" />
                 </motion.span>
-
               </motion.button>
-
             </form>
 
             {/* FOOTER */}
@@ -939,21 +902,20 @@ export default function Personal({ formData, updateFormData, onNext }) {
                 delay: 1.1,
               }}
               className="
-                mt-4
+                mt-3
                 flex
                 items-center
                 justify-center
                 gap-1.5
-                text-[10px]
+                text-[9px]
                 text-slate-400
                 sm:mt-5
                 sm:text-xs
               "
             >
-              <Sparkles size={11} />
+              <Sparkles size={10} className="sm:w-[11px] sm:h-[11px]" />
               Secure Admission Enquiry
             </motion.div>
-
           </div>
         </div>
       </motion.div>
