@@ -127,23 +127,25 @@ export default function Landing({ onRegister }) {
         </motion.button>
       </motion.header>
 
-      {/* HERO SECTION */}
+      {/* HERO SECTION (Reverted to original grid structure) */}
       <section
         ref={sceneRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="relative z-10 flex flex-1 items-start justify-center w-full px-4 pt-6 sm:px-8 lg:px-10 sm:pt-0 sm:items-center"
+        className="relative z-10 flex flex-1 items-center justify-center w-full px-4 sm:px-8 lg:px-10"
       >
-        {/* Yahan maine mobile ke liye flex-col aur gap diya hai taaki text aur graphic apne blocks me rahein */}
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 sm:grid sm:h-auto sm:items-center sm:gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-0">
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-3 sm:gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-0 mt-2 sm:mt-0">
           
-          {/* LEFT CONTENT (Purple Box Area) */}
-          <div className="relative z-20 flex flex-col items-center text-center lg:items-start lg:text-left">
+          {/* LEFT CONTENT (AB YEH EK BOX KE ANDAR HAI MOBILE MEIN) */}
+          <div className="relative z-20 text-center lg:text-left mt-[-10px] sm:mt-0 
+            bg-white/40 border border-white/60 shadow-[0_10px_40px_rgba(11,41,69,0.08)] backdrop-blur-xl rounded-[1.5rem] p-5 
+            sm:bg-transparent sm:border-transparent sm:shadow-none sm:backdrop-blur-none sm:p-0 sm:rounded-none">
+            
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.7 }}
-              className="mb-2 sm:mb-3 inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-white bg-white/70 px-3 py-1 sm:px-4 sm:py-2 text-[8px] sm:text-xs font-bold uppercase tracking-[0.16em] text-[#2080e5] shadow-[0_10px_30px_rgba(25,100,150,0.08)] backdrop-blur-xl"
+              className="mb-2 sm:mb-3 inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-white bg-white/80 px-3 py-1 sm:px-4 sm:py-2 text-[9px] sm:text-xs font-bold uppercase tracking-[0.16em] text-[#2080e5] shadow-[0_10px_30px_rgba(25,100,150,0.08)] backdrop-blur-xl"
             >
               <motion.span
                 animate={{ scale: [1, 1.4, 1] }}
@@ -154,11 +156,12 @@ export default function Landing({ onRegister }) {
             </motion.div>
 
             <div className="overflow-hidden">
+              {/* Text Size thoda badha diya (text-[35px]) */}
               <motion.h1
                 initial={{ y: 100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.35, duration: 0.9, type: 'spring', stiffness: 70 }}
-                className="text-[30px] sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[88px] font-black leading-[1.05] sm:leading-[0.95] tracking-[-0.05em] text-[#0b2945]"
+                className="text-[35px] sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[88px] font-black leading-[1.05] sm:leading-[0.95] tracking-[-0.05em] text-[#0b2945]"
               >
                 Shape Your<br />
                 <span className="relative inline-block text-[#2080e5]">
@@ -173,11 +176,12 @@ export default function Landing({ onRegister }) {
               </motion.h1>
             </div>
 
+            {/* Paragraph Text Size badha diya (text-[12px]) */}
             <motion.p
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.75, duration: 0.7 }}
-              className="mx-auto mt-2 sm:mt-6 max-w-xl text-[10px] sm:text-base leading-4 sm:leading-7 text-slate-500 lg:mx-0 px-2 sm:px-0"
+              className="mx-auto mt-2 sm:mt-6 max-w-xl text-[12px] sm:text-base leading-[1.3rem] sm:leading-7 text-slate-600 lg:mx-0 px-1 sm:px-0"
             >
               Learn industry-ready skills, build real projects, and take your first step towards a powerful career with{' '}
               <span className="font-bold text-[#0b2945]">Cybrom Technology Pvt. Ltd.</span>
@@ -187,13 +191,13 @@ export default function Landing({ onRegister }) {
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.95 }}
-              className="mt-3 sm:mt-8 flex flex-col items-center gap-2 sm:gap-3 sm:flex-row lg:justify-start w-full"
+              className="mt-4 sm:mt-8 flex flex-col items-center gap-2 sm:gap-3 sm:flex-row lg:justify-start"
             >
               <motion.button
                 onClick={onRegister}
                 whileHover={{ scale: 1.05, y: -5, boxShadow: '0 20px 45px rgba(11,41,69,0.28)' }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative flex w-[75%] sm:w-auto items-center justify-center gap-2 sm:gap-3 overflow-hidden rounded-xl sm:rounded-2xl bg-[#0b2945] px-5 py-2.5 sm:px-9 sm:py-4 text-[11px] sm:text-sm font-bold text-white shadow-[0_12px_30px_rgba(11,41,69,0.2)]"
+                className="group relative flex w-[85%] sm:w-auto items-center justify-center gap-2 sm:gap-3 overflow-hidden rounded-xl sm:rounded-2xl bg-[#0b2945] px-5 py-3 sm:px-9 sm:py-4 text-[12px] sm:text-sm font-bold text-white shadow-[0_12px_30px_rgba(11,41,69,0.2)]"
               >
                 <motion.div
                   animate={{ x: ['-150%', '180%'] }}
@@ -215,17 +219,17 @@ export default function Landing({ onRegister }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.25 }}
-              className="mt-2 sm:mt-7 flex items-center justify-center gap-1 sm:gap-2 text-[8px] sm:text-xs font-medium text-slate-400 lg:justify-start"
+              className="mt-3 sm:mt-7 flex items-center justify-center gap-1 sm:gap-2 text-[9px] sm:text-xs font-medium text-slate-500 lg:justify-start"
             >
               <Sparkles size={10} className="sm:w-[13px]" />
               Industry-focused learning experience
             </motion.div>
           </div>
 
-          {/* 3D SCENE (Niche wala hissa) */}
+          {/* 3D SCENE (EKDUM PURANA WALA ORIGINAL LAYOUT) */}
           <motion.div
             style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-            className="relative mx-auto mt-4 sm:mt-0 h-[190px] sm:h-[480px] lg:h-[540px] w-full max-w-[280px] sm:max-w-[520px]"
+            className="relative mx-auto mt-2 sm:mt-0 h-[190px] sm:h-[480px] lg:h-[540px] w-full max-w-[280px] sm:max-w-[520px]"
           >
             <motion.div
               animate={{ rotateZ: [0, 360] }}
