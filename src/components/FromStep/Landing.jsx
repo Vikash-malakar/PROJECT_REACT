@@ -98,7 +98,6 @@ export default function Landing({ onRegister }) {
             transition={{ duration: 7, repeat: Infinity, ease: 'linear' }}
             className="flex h-7 w-7 sm:h-10 sm:w-10 items-center justify-center rounded-lg sm:rounded-xl shadow-[0_10px_25px_rgba(11,41,69,0.25)] overflow-hidden bg-[#0b2945]"
           >
-            {/* Seedha public folder ka path de diya hai */}
             <img 
               src="/303965.png" 
               alt="Cybrom Logo" 
@@ -106,7 +105,7 @@ export default function Landing({ onRegister }) {
             />
           </motion.div>
           
-          {/* Brand Name (Size Increased) */}
+          {/* Brand Name */}
           <div>
             <p className="text-base sm:text-xl font-black tracking-tight">
               Cybrom
@@ -139,10 +138,11 @@ export default function Landing({ onRegister }) {
         onMouseLeave={handleMouseLeave}
         className="relative z-10 flex flex-1 items-center justify-center w-full px-4 sm:px-8 lg:px-10"
       >
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-1 sm:gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-0">
+        {/* YAHAN CHANGES KIYE HAIN: Mobile par flex-col aur justify-between lagaya, baaki sab same */}
+        <div className="mx-auto flex h-full w-full max-w-7xl flex-col justify-between pb-8 pt-4 sm:grid sm:h-auto sm:pb-0 sm:pt-0 sm:items-center sm:gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-0">
           
           {/* LEFT CONTENT */}
-          <div className="relative z-20 text-center lg:text-left mt-[-10px] sm:mt-0">
+          <div className="relative z-20 text-center lg:text-left mt-2 sm:mt-0">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -229,7 +229,7 @@ export default function Landing({ onRegister }) {
           {/* 3D SCENE */}
           <motion.div
             style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-            className="relative mx-auto mt-2 sm:mt-0 h-[190px] sm:h-[480px] lg:h-[540px] w-full max-w-[280px] sm:max-w-[520px]"
+            className="relative mx-auto mt-auto mb-2 sm:mt-0 sm:mb-0 h-[190px] sm:h-[480px] lg:h-[540px] w-full max-w-[280px] sm:max-w-[520px]"
           >
             <motion.div
               animate={{ rotateZ: [0, 360] }}
