@@ -91,8 +91,6 @@ export default function Landing({ onRegister }) {
         className="relative z-30 mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-2 sm:py-5 sm:px-8 lg:px-10"
       >
         <motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-2 sm:gap-3">
-          
-          {/* Custom Logo Image with 3D Rotation */}
           <motion.div
             animate={{ rotateY: [0, 180, 360] }}
             transition={{ duration: 7, repeat: Infinity, ease: 'linear' }}
@@ -104,8 +102,6 @@ export default function Landing({ onRegister }) {
               className="h-full w-full object-cover" 
             />
           </motion.div>
-          
-          {/* Brand Name */}
           <div>
             <p className="text-base sm:text-xl font-black tracking-tight">
               Cybrom
@@ -136,13 +132,13 @@ export default function Landing({ onRegister }) {
         ref={sceneRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="relative z-10 flex flex-1 items-center justify-center w-full px-4 sm:px-8 lg:px-10"
+        className="relative z-10 flex flex-1 items-start justify-center w-full px-4 pt-6 sm:px-8 lg:px-10 sm:pt-0 sm:items-center"
       >
-        {/* YAHAN CHANGES KIYE HAIN: Mobile par flex-col aur justify-between lagaya, baaki sab same */}
-        <div className="mx-auto flex h-full w-full max-w-7xl flex-col justify-between pb-8 pt-4 sm:grid sm:h-auto sm:pb-0 sm:pt-0 sm:items-center sm:gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-0">
+        {/* Yahan maine mobile ke liye flex-col aur gap diya hai taaki text aur graphic apne blocks me rahein */}
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 sm:grid sm:h-auto sm:items-center sm:gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-0">
           
-          {/* LEFT CONTENT */}
-          <div className="relative z-20 text-center lg:text-left mt-2 sm:mt-0">
+          {/* LEFT CONTENT (Purple Box Area) */}
+          <div className="relative z-20 flex flex-col items-center text-center lg:items-start lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -191,7 +187,7 @@ export default function Landing({ onRegister }) {
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.95 }}
-              className="mt-3 sm:mt-8 flex flex-col items-center gap-2 sm:gap-3 sm:flex-row lg:justify-start"
+              className="mt-3 sm:mt-8 flex flex-col items-center gap-2 sm:gap-3 sm:flex-row lg:justify-start w-full"
             >
               <motion.button
                 onClick={onRegister}
@@ -226,10 +222,10 @@ export default function Landing({ onRegister }) {
             </motion.div>
           </div>
 
-          {/* 3D SCENE */}
+          {/* 3D SCENE (Niche wala hissa) */}
           <motion.div
             style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-            className="relative mx-auto mt-auto mb-2 sm:mt-0 sm:mb-0 h-[190px] sm:h-[480px] lg:h-[540px] w-full max-w-[280px] sm:max-w-[520px]"
+            className="relative mx-auto mt-4 sm:mt-0 h-[190px] sm:h-[480px] lg:h-[540px] w-full max-w-[280px] sm:max-w-[520px]"
           >
             <motion.div
               animate={{ rotateZ: [0, 360] }}
