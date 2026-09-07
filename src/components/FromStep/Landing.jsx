@@ -135,95 +135,192 @@ export default function Landing({ onRegister }) {
         className="relative z-10 flex flex-1 items-center justify-center w-full px-4 sm:px-8 lg:px-10"
       >
         <div className="mx-auto grid w-full max-w-7xl items-center gap-3 sm:gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-0 mt-2 sm:mt-0">
-          
-          {/* LEFT CONTENT (White Card Box) */}
-          <div className="relative z-20 text-center lg:text-left mt-[-10px] sm:mt-0 
-            bg-white/40 border border-white/60 shadow-[0_10px_40px_rgba(11,41,69,0.08)] backdrop-blur-xl rounded-[1.5rem] p-5 
-            sm:bg-transparent sm:border-transparent sm:shadow-none sm:backdrop-blur-none sm:p-0 sm:rounded-none">
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.7 }}
-              className="mb-2 sm:mb-3 inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-white bg-white/80 px-3 py-1 sm:px-4 sm:py-2 text-[9px] sm:text-xs font-bold uppercase tracking-[0.16em] text-[#2080e5] shadow-[0_10px_30px_rgba(25,100,150,0.08)] backdrop-blur-xl"
-            >
-              <motion.span
-                animate={{ scale: [1, 1.4, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-[#2080e5]"
-              />
-              Build. Learn. Become.
-            </motion.div>
+          {/*===================================================  */}
+        {/* LEFT CONTENT (White Card Box) */}
 
-            <div className="overflow-hidden">
-              <motion.h1
-                initial={{ y: 100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.35, duration: 0.9, type: 'spring', stiffness: 70 }}
-                className="text-[35px] sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[88px] font-black leading-[1.05] sm:leading-[0.95] tracking-[-0.05em] text-[#0b2945]"
-              >
-                Shape Your<br />
-                <span className="relative inline-block text-[#2080e5] text-7xl">
-                  Future.
-                  <motion.span
-                    initial={{ width: 0 }}
-                    animate={{ width: '100%' }}
-                    transition={{ delay: 1.2, duration: 0.8 }}
-                    className="absolute -bottom-1 left-0 h-0.5 sm:h-1 rounded-full bg-[#2080e5]"
-                  />
-                </span>
-              </motion.h1>
-            </div>
+<div className="relative z-20 mt-[-10px] text-center sm:mt-0 lg:text-left 
+  bg-white/40 border border-white/60 shadow-[0_10px_40px_rgba(11,41,69,0.08)] 
+  backdrop-blur-xl rounded-[1.5rem] p-5 
+  sm:bg-transparent sm:border-transparent sm:shadow-none sm:backdrop-blur-none 
+  sm:p-0 sm:rounded-none">
 
-            <motion.p
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.75, duration: 0.7 }}
-              className="mx-auto mt-2 sm:mt-6 max-w-xl text-[12px] sm:text-base leading-[1.3rem] sm:leading-7 text-slate-600 lg:mx-0 px-1 sm:px-0"
-            >
-              {/* Learn industry-ready skills, build real projects, and take your first step towards a powerful career with{' '} */}
-              <span className="font-bold text-[#0b2945]">Cybrom Technology Pvt. Ltd.</span>
-            </motion.p>
+<motion.div
+initial={{ opacity: 0, y: 20 }}
+animate={{ opacity: 1, y: 0 }}
+transition={{ delay: 0.2, duration: 0.7 }}
+className="mb-3 inline-flex max-w-full items-center gap-2 rounded-full
+border border-white bg-white/80 px-3 py-1.5
+text-[9px] font-bold uppercase tracking-[0.14em] text-[#2080e5]
+shadow-[0_10px_30px_rgba(25,100,150,0.08)] backdrop-blur-xl
+sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.16em]"
 
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.95 }}
-              className="mt-4 sm:mt-8 flex flex-col items-center gap-2 sm:gap-3 sm:flex-row lg:justify-start"
-            >
-              <motion.button
-                onClick={onRegister}
-                whileHover={{ scale: 1.05, y: -5, boxShadow: '0 20px 45px rgba(11,41,69,0.28)' }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative flex w-[85%] sm:w-auto items-center justify-center gap-2 sm:gap-3 overflow-hidden rounded-xl sm:rounded-2xl bg-[#0b2945] px-5 py-3 sm:px-9 sm:py-4 text-[12px] sm:text-sm font-bold text-white shadow-[0_12px_30px_rgba(11,41,69,0.2)]"
-              >
-                <motion.div
-                  animate={{ x: ['-150%', '180%'] }}
-                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 2 }}
-                  className="absolute inset-y-0 w-1/4 -skew-x-12 bg-white/15"
-                />
-                <span className="relative z-10 p-3 text-lg ">Start Your Journey</span>
-                <motion.span
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.2, repeat: Infinity }}
-                  className="relative z-10"
-                >
-                  <ArrowRight size={14} className="sm:w-[18px]" />
-                </motion.span>
-              </motion.button>
-            </motion.div>
+>
+<motion.span
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.25 }}
-              className="mt-3 sm:mt-7 flex items-center justify-center gap-1 sm:gap-2 text-[9px] sm:text-xs font-medium text-slate-500 lg:justify-start"
-            >
-              <Sparkles size={10} className="sm:w-[13px]" />
-              Industry-focused learning experience
-            </motion.div>
-          </div>
 
+  animate={{ scale: [1, 1.4, 1] }}
+  transition={{ duration: 1.5, repeat: Infinity }}
+  className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#2080e5] sm:h-2 sm:w-2"
+/>
+<span className="whitespace-nowrap">
+  Build. Learn. Become.
+</span>
+
+
+</motion.div>
+
+  <div className="overflow-hidden">
+    <motion.h1
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        delay: 0.35,
+        duration: 0.9,
+        type: 'spring',
+        stiffness: 70
+      }}
+      className="font-black leading-[1.02] tracking-[-0.045em] 
+        text-[#0b2945] text-[35px]
+        sm:text-6xl sm:leading-[0.95]
+        md:text-7xl
+        lg:text-[76px]
+        xl:text-[88px]"
+    >
+      Shape Your
+      <br />
+
+
+  <span className="relative inline-block whitespace-nowrap text-[#2080e5] text-5xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[88px]">
+    Future.
+
+    <motion.span
+      initial={{ width: 0 }}
+      animate={{ width: '100%' }}
+      transition={{ delay: 1.2, duration: 0.8 }}
+      className="absolute -bottom-1 left-0 h-0.5 rounded-full 
+        bg-[#2080e5] sm:h-1"
+    />
+  </span>
+</motion.h1>
+
+
+  </div>
+
+<motion.p
+initial={{ opacity: 0, y: 25 }}
+animate={{ opacity: 1, y: 0 }}
+transition={{ delay: 0.75, duration: 0.7 }}
+className="mx-auto mt-3 max-w-xl px-1 text-[12px] font-medium
+leading-5 text-slate-600
+sm:mt-6 sm:px-0 sm:text-base sm:leading-7
+lg:mx-0"
+
+>
+
+
+<span className="font-bold text-[#0b2945]">
+
+
+  Cybrom Technology Pvt. Ltd.
+</span>
+
+
+</motion.p>
+
+<motion.div
+initial={{ opacity: 0, y: 25 }}
+animate={{ opacity: 1, y: 0 }}
+transition={{ delay: 0.95 }}
+className="mt-5 flex flex-col items-center gap-3
+sm:mt-8 sm:flex-row sm:gap-3 lg:justify-start"
+
+>
+
+
+<motion.button
+
+
+
+  onClick={onRegister}
+  whileHover={{
+    scale: 1.05,
+    y: -5,
+    boxShadow: '0 20px 45px rgba(11,41,69,0.28)'
+  }}
+  whileTap={{ scale: 0.95 }}
+  className="group relative flex w-[85%] shrink-0 items-center 
+    justify-center gap-2 overflow-hidden rounded-xl 
+    bg-[#0b2945] px-5 py-3 text-[12px] font-bold text-white 
+    shadow-[0_12px_30px_rgba(11,41,69,0.2)]
+    sm:w-auto sm:gap-3 sm:rounded-2xl sm:px-9 sm:py-4 sm:text-sm"
+>
+  <motion.div
+    animate={{ x: ['-150%', '180%'] }}
+    transition={{
+      duration: 2,
+      repeat: Infinity,
+      repeatDelay: 2
+    }}
+    className="absolute inset-y-0 w-1/4 -skew-x-12 bg-white/15"
+  />
+
+  <span className="relative z-10 whitespace-nowrap text-base leading-none sm:text-lg">
+    Start Your Journey
+  </span>
+
+  <motion.span
+    animate={{ x: [0, 5, 0] }}
+    transition={{ duration: 1.2, repeat: Infinity }}
+    className="relative z-10 flex shrink-0 items-center justify-center"
+  >
+    <ArrowRight size={14} className="sm:w-[18px]" />
+  </motion.span>
+</motion.button>
+
+
+</motion.div>
+
+<motion.div
+initial={{ opacity: 0 }}
+animate={{ opacity: 1 }}
+transition={{ delay: 1.25 }}
+className="mt-4 flex items-center justify-center gap-2
+text-[9px] font-medium leading-4 text-slate-500
+sm:mt-7 sm:text-xs sm:leading-5
+lg:justify-start"
+
+>
+
+
+<Sparkles size={10} className="shrink-0 sm:w-[13px]" />
+
+
+
+<span className="whitespace-nowrap">
+  Industry-focused learning experience
+</span>
+
+
+</motion.div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {/* ================================================================================================================= */}
           {/* 3D SCENE */}
           <motion.div
             style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
