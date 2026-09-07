@@ -163,7 +163,7 @@ export default function Landing({ onRegister }) {
                 className="text-[35px] sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[88px] font-black leading-[1.05] sm:leading-[0.95] tracking-[-0.05em] text-[#0b2945]"
               >
                 Shape Your<br />
-                <span className="relative inline-block text-[#2080e5]">
+                <span className="relative inline-block text-[#2080e5] text-7xl">
                   Future.
                   <motion.span
                     initial={{ width: 0 }}
@@ -181,7 +181,7 @@ export default function Landing({ onRegister }) {
               transition={{ delay: 0.75, duration: 0.7 }}
               className="mx-auto mt-2 sm:mt-6 max-w-xl text-[12px] sm:text-base leading-[1.3rem] sm:leading-7 text-slate-600 lg:mx-0 px-1 sm:px-0"
             >
-              Learn industry-ready skills, build real projects, and take your first step towards a powerful career with{' '}
+              {/* Learn industry-ready skills, build real projects, and take your first step towards a powerful career with{' '} */}
               <span className="font-bold text-[#0b2945]">Cybrom Technology Pvt. Ltd.</span>
             </motion.p>
 
@@ -202,7 +202,7 @@ export default function Landing({ onRegister }) {
                   transition={{ duration: 2, repeat: Infinity, repeatDelay: 2 }}
                   className="absolute inset-y-0 w-1/4 -skew-x-12 bg-white/15"
                 />
-                <span className="relative z-10">Start Your Journey</span>
+                <span className="relative z-10 p-3 text-lg ">Start Your Journey</span>
                 <motion.span
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.2, repeat: Infinity }}

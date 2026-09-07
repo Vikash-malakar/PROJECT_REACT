@@ -264,3 +264,11 @@ export default function App() {
     </div>
   );
 }
+
+
+
+
+
+
+
+// https://django-project-f-1.onrender.com/registations/
